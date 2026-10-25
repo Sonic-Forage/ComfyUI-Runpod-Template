@@ -103,8 +103,8 @@ RUN cat ComfyUI/requirements.txt > requirements.in && \
     TORCH_INDEX_URL="https://download.pytorch.org/whl/${TORCH_INDEX_SUFFIX}" && \
     PIP_INDEX_URL=https://pypi.org/simple \
     PIP_EXTRA_INDEX_URL="${TORCH_INDEX_URL}" \
-    pip-compile --generate-hashes --output-file=requirements.lock --strip-extras --allow-unsafe requirements.in && \
-    python3.12 -m pip install --no-cache-dir --ignore-installed --require-hashes \
+    pip-compile --output-file=requirements.lock --strip-extras --allow-unsafe requirements.in && \
+    python3.12 -m pip install --no-cache-dir --ignore-installed \
     --index-url https://pypi.org/simple \
     --extra-index-url "${TORCH_INDEX_URL}" \
     -r requirements.lock && \
