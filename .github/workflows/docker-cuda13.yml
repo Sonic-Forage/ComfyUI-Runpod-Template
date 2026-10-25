@@ -1,0 +1,33 @@
+name: Build CUDA 13
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push CUDA 13
+        uses: docker/bake-action@v6
+        with:
+          targets: cuda13
+          push: true
+          set: |
+            cuda13.tags=mindbotz/comfy-mindbotz-toolkit:v0.42.1-cuda13
