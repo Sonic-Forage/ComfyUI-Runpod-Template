@@ -4,19 +4,19 @@ variable "TAG" {
 
 # === Version Pins (single source of truth) ===
 variable "COMFYUI_VERSION" {
-  default = "v0.30.0"
+  default = "v0.42.5"
 }
 variable "MANAGER_SHA" {
-  default = "c352b16bb186"
+  default = "latest"
 }
 variable "KJNODES_SHA" {
-  default = "bc8e4ce4254b"
+  default = "latest"
 }
 variable "CIVICOMFY_SHA" {
-  default = "555e984bbcb0"
+  default = "latest"
 }
 variable "RUNPODDIRECT_SHA" {
-  default = "809065c9d2f3"
+  default = "latest"
 }
 # Regular image (cu128)
 variable "TORCH_VERSION" {
