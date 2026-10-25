@@ -30,4 +30,4 @@ jobs:
           targets: cuda13
           push: true
           set: |
-            cuda13.tags=mindbotz/comfy-mindbotz-toolkit:v0.42.1-cuda13
+            cuda13.tags=mindbotz/comfy-mindbotz-toolkit:v0.42.5-cuda13
